@@ -18,6 +18,7 @@ Quickstart
     $ git pull -s recursive -X theirs upstream master
 4) Edit .openshift/action_hooks/build and set DOMAIN_NAME to your reviewboard-$DOMNAME.rhcloud.com domain
     $ vi .openshift/action_hooks/build
+    $ git commit -a -m "Corrected domain name"
 5) Then push the repo upstream
     $ git push
 6) That's it, you can now checkout your application at:
