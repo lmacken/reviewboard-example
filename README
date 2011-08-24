@@ -16,14 +16,11 @@ Quickstart
     $ cd reviewboard
     $ git remote add upstream -m master git://github.com/openshift/reviewboard-example.git
     $ git pull -s recursive -X theirs upstream master
-4) Edit .openshift/action_hooks/build and set DOMAIN_NAME to your reviewboard-$DOMNAME.rhcloud.com domain
-    $ vi .openshift/action_hooks/build
-    $ git commit -a -m "Corrected domain name"
-5) Then push the repo upstream
+4) Then push the repo upstream
     $ git push
-6) That's it, you can now checkout your application at:
+5) That's it, you can now checkout your application at:
     http://reviewboard-$yourlogin.rhcloud.com
-7) Default Admin Username: Admin
+6) Default Admin Username: Admin
    Default Password: OpenShiftAdmin
 
 Updates

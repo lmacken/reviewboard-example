@@ -5,8 +5,8 @@
 
 # Edit the below values, the only required change is DOMAIN_NAME
 # These values are _ONLY_ used at install time.
-DOMAIN_NAME="CHANGEME" # This is required to be set
-DATABASE_NAME="reviewboard"
+DOMAIN_NAME="$OPENSHIFT_APP_DNS" # This is required to be set
+DATABASE_NAME="$OPENSHIFT_APP_NAME"
 DATABASE_TYPE="mysql"
 REVIEWBOARD_ADMIN="admin"
 REVIEWBOARD_ADMIN_PASSWORD="OpenShiftAdmin" # Used only at install time
@@ -40,9 +40,7 @@ then
     exit 5
 fi
 
-# Check for db, create if it does not exist
-mysql -u "$OPENSHIFT_DB_USERNAME" --password="$OPENSHIFT_DB_PASSWORD" -h "$OPENSHIFT_DB_HOST" -e "select * from accounts_profile;" reviewboardd > /dev/null 2>&1 || mysqladmin -u "$OPENSHIFT_DB_USERNAME" --password="$OPENSHIFT_DB_PASSWORD" -h "$OPENSHIFT_DB_HOST" create "$DATABASE_NAME"
-
+# Install or upgrade
 if [ -d $OPENSHIFT_DATA_DIR$OPENSHIFT_APP_NAME ]
 then
     rb-site upgrade --noinput $OPENSHIFT_DATA_DIR$OPENSHIFT_APP_NAME/
