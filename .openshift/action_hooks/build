@@ -12,6 +12,7 @@ REVIEWBOARD_ADMIN="admin"
 REVIEWBOARD_ADMIN_PASSWORD="OpenShiftAdmin" # Used only at install time
 REVIEWBOARD_ADMIN_EMAIL="example@example.com"
 export PYTHON_EGG_CACHE="$OPENSHIFT_DATA_DIR/$OPENSHIFT_APP_NAME/tmp/egg_cache"
+export PATH=$PATH:~/reviewboard/virtenv/bin/
 
 set -e
 
